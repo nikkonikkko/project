@@ -34,6 +34,9 @@ li {
   border: 5px solid black;
   font-size: medium;
 }
+footer {
+  text-align: center;
+}
 
 .icon {
   display: block;
