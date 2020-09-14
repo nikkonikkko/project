@@ -1,10 +1,10 @@
 body {
   font-family: sans-serif;
-  max-width: 400%;
+  max-width: 300%;
 }
 .container {
   border-radius: 3px;
-  border: 13px solid black;
+  border: 5px solid black;
   margin: 40px 20px auto;
   padding: 20px 30px;
   background: salmon;
