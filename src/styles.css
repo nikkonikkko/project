@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  max-width: 400%;
 }
 .container {
   border-radius: 3px;
