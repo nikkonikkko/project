@@ -4,10 +4,11 @@ body {
 }
 .container {
   border-radius: 3px;
-  border: 5px solid black;
+  border: 3px solid black;
   margin: 40px 20px auto;
   padding: 20px 30px;
   background: white;
+  
 }
 
 .search {
@@ -27,12 +28,15 @@ ul {
 li {
   list-style: none;
 }
+.row {
+  display: flex;
+}
+
 .box {
-  padding: 40px 20px;
-  margin: auto;
+  padding: 10px 10px;
+  margin: 5px;
   text-align: center;
-  border-radius: 3px;
-  border: 5px solid black;
+
   font-size: medium;
 }
 footer {
