@@ -8,7 +8,6 @@ body {
   margin: 40px 20px auto;
   padding: 20px 30px;
   background: white;
-  
 }
 
 .search {
@@ -32,7 +31,7 @@ li {
   display: flex;
 }
 
-.box {
+.forecast-weather {
   padding: 10px 10px;
   margin: 5px;
   text-align: center;
