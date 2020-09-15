@@ -23,16 +23,20 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 function displayWeather(response) {
-  console.log(response.data);
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
+  let cityElement = document.querySelector("#city");
+  let tempElement = document.querySelector("#temp");
+
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+
+  celciusTemp = response.data.main.temp;
+
+  cityElement.innerHTML = response.data.name;
+  tempElement.innerHTML = Math.round(celciusTemp);
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
+
 function search(city) {
   let apiKey = "ebfabc5404a59f422c248844343ef151";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -56,4 +60,4 @@ searchForm.addEventListener("submit", handleSubmit);
 
 dateElement.innerHTML = formatDate(now);
 
-search("New York");
+search("France");

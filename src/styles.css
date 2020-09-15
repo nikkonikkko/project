@@ -43,15 +43,19 @@ footer {
   display: block;
   margin: 0 auto;
 }
-.units {
+
+.temp {
+  font-size: 50px;
+}
+.unit {
   color: black;
-  font-weight: lighter;
+  font-size: 25px;
 }
 
 h3 {
   margin-bottom: 20px;
-  font-size: 45px;
 }
+
 h1,
 h2 {
   margin-bottom: 5px;
