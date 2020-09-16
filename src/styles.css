@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: monospace;
   max-width: 300%;
 }
 .container {
@@ -7,7 +7,8 @@ body {
   border: 3px solid black;
   margin: 40px 20px auto;
   padding: 20px 30px;
-  background: white;
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
 }
 
 .search {
@@ -19,6 +20,14 @@ body {
 h1 {
   margin-top: -20px;
 }
+p {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+p:first-letter {
+  text-transform: capitalize;
+}
 ul {
   margin-left: 30px;
   margin-top: 20px;
@@ -27,6 +36,7 @@ ul {
 li {
   list-style: none;
 }
+
 .row {
   display: flex;
 }
@@ -47,9 +57,14 @@ footer {
   margin: 0 auto;
 }
 
+header {
+  color: black;
+}
+
 .temp {
   font-size: 50px;
 }
+
 .unit {
   color: black;
   font-size: 25px;
@@ -63,4 +78,8 @@ h1,
 h2 {
   margin-bottom: 5px;
   font-size: 35px;
+}
+.wind,
+.humidity {
+  max-width: 10%;
 }

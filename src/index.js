@@ -28,12 +28,14 @@ function formatHours(date) {
 }
 
 function displayWeather(response) {
+  console.log(response);
   let cityElement = document.querySelector("#city");
   let tempElement = document.querySelector("#temp");
 
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
+  let descriptionElemnet = document.querySelector("#description");
 
   celciusTemp = response.data.main.temp;
 
@@ -41,6 +43,7 @@ function displayWeather(response) {
   tempElement.innerHTML = Math.round(celciusTemp);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  descriptionElemnet.innerHTML = response.data.weather[0].description;
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -48,25 +51,25 @@ function displayWeather(response) {
   iconElement.setAtribute("atl", response.data.weather[0].description);
 }
 
-function displayforecast(response) {
-  let forecastElement = document.querySelector("#forecast");
-  console.log(response.data);
-  let forecast = response.data.list[0];
-  forecastElement.innerHTML = ` <div class="col-sm-2">
-          ${forecast.dt_txt}
-          <div class="icon">
-            <img
-              src="http://openweathermap.org/img/wn/${
-                forecast.weather[0].icon
-              }@2x.png"
-              atl=" "
-            />
-          </div>
-          <div class="climate" id="temp">${Math.round(
-            forecast.main.temp_max
-          )}°</div>
-        </div>`;
-}
+//function displayforecast(response) {
+//let forecastElement = document.querySelector("#forecast");
+//console.log(response.data);
+//let forecast = response.data.list[0];
+//forecastElement.innerHTML = ` <div class="col-sm-2">
+// ${forecast.dt_txt}
+// <div class="icon">
+// <img
+//src="http://openweathermap.org/img/wn/${
+//forecast.weather[0].icon
+// }@2x.png"
+// atl=" "
+// />
+// </div>
+//<div class="climate" id="temp">${Math.round(
+///  forecast.main.temp_max
+/// )}°</div>
+////</div>`;
+//}
 
 function search(city) {
   let apiKey = "ebfabc5404a59f422c248844343ef151";
