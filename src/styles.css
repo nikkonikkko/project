@@ -69,6 +69,14 @@ header {
   color: black;
   font-size: 25px;
 }
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+}
 
 h3 {
   margin-bottom: 20px;
@@ -81,5 +89,5 @@ h2 {
 }
 .wind,
 .humidity {
-  max-width: 10%;
+  width: 15px;
 }

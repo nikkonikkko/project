@@ -37,10 +37,10 @@ function displayWeather(response) {
   let iconElement = document.querySelector("#icon");
   let descriptionElemnet = document.querySelector("#description");
 
-  celciusTemp = response.data.main.temp;
+  celciusTemperature = response.data.main.temp;
 
   cityElement.innerHTML = response.data.name;
-  tempElement.innerHTML = Math.round(celciusTemp);
+  tempElement.innerHTML = Math.round(celciusTemperature);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   descriptionElemnet.innerHTML = response.data.weather[0].description;
@@ -76,8 +76,8 @@ function search(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayforecast);
+  //apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  //axios.get(apiUrl).then(displayforecast);
 }
 
 function handleSubmit(event) {
@@ -88,6 +88,24 @@ function handleSubmit(event) {
   let city = document.querySelector("#inside-input").value;
   search(city);
 }
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temp");
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celciusTemperature * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let tempElement = document.querySelector("#temp");
+  tempElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
 
 let dateElement = document.querySelector("#date");
 let now = new Date();
@@ -96,5 +114,11 @@ let searchForm = document.querySelector("#inside");
 searchForm.addEventListener("submit", handleSubmit);
 
 dateElement.innerHTML = formatDate(now);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("France");
